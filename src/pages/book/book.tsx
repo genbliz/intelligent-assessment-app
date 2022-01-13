@@ -8,6 +8,7 @@ import { BookItem } from "../../component/book-item";
 import AppContent from "../../component/content";
 import AppHeader from "../../component/header";
 import { Spacer } from "@chakra-ui/react";
+import Loading from "../../component/loading";
 
 export const BookList: React.FC = () => {
   const [isLoaded, setLoaded] = React.useState(false);
@@ -30,11 +31,11 @@ export const BookList: React.FC = () => {
   }, []);
 
   if (!isLoaded) {
-    return <AppLayout>{/*  */}</AppLayout>;
-  }
-
-  if (!dataList?.length) {
-    return <AppLayout>{/*  */}</AppLayout>;
+    return (
+      <AppLayout>
+        <Loading />
+      </AppLayout>
+    );
   }
 
   return (

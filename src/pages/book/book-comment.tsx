@@ -19,9 +19,11 @@ import {
   Spacer,
   Stack,
   Textarea,
+  VStack,
 } from "@chakra-ui/react";
 import { MdComment, MdPerson } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import Loading from "../../component/loading";
 
 export const BookCommentList: React.FC = () => {
   const [isLoaded, setLoaded] = React.useState(false);
@@ -81,7 +83,11 @@ export const BookCommentList: React.FC = () => {
   }, [id]);
 
   if (!isLoaded) {
-    return <AppLayout>{/*  */}</AppLayout>;
+    return (
+      <AppLayout>
+        <Loading />
+      </AppLayout>
+    );
   }
 
   return (
@@ -111,8 +117,14 @@ export const BookCommentList: React.FC = () => {
                 return (
                   <React.Fragment key={data.id}>
                     <ListItem>
-                      <ListIcon as={MdComment} boxSize={5} color="green.500" />
-                      {data.comment}
+                      <HStack>
+                        <ListIcon
+                          as={MdComment}
+                          boxSize={6}
+                          color="green.500"
+                        />
+                        <Box>{data.comment}</Box>
+                      </HStack>
                     </ListItem>
                   </React.Fragment>
                 );
