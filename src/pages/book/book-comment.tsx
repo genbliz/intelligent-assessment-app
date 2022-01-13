@@ -86,7 +86,7 @@ export const BookCommentList: React.FC = () => {
 
   return (
     <AppLayout>
-      <AppHeader menuTitle={"Book Comment"} />
+      <AppHeader menuTitle={"Book Comment"} isMini backToUrl="/books" />
       <AppContent>
         <Box>
           <BookItem
@@ -99,7 +99,7 @@ export const BookCommentList: React.FC = () => {
 
         <Spacer h={10} />
 
-        {bookData.comments?.length && (
+        {bookData.comments?.length ? (
           <Box>
             <Heading size={"sm"} paddingBottom={1}>
               Comments
@@ -119,6 +119,8 @@ export const BookCommentList: React.FC = () => {
               })}
             </List>
           </Box>
+        ) : (
+          <Box>No Comments</Box>
         )}
         <Spacer h={10} />
 
