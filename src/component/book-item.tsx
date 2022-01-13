@@ -83,7 +83,7 @@ export const BookItem: React.FC<{
               <Center> {commentCount || 0} Comments</Center>
             </Box>
             <Box p={1} width={"50%"} bg={"gray.100"}>
-              <Center> 5 Chars</Center>
+              <Center>&nbsp;</Center>
             </Box>
           </Box>
         </React.Fragment>
